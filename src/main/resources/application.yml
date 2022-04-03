@@ -1,0 +1,41 @@
+# Spring Application Details
+application:
+  name=: ecommerce-company
+
+spring:
+  cache:
+    cache-names: prices
+    caffeine:
+      spec: maximumSize=500,initialCapacity=1000
+  jpa:
+    hibernate:
+      ddl-auto: none
+      jdbc:
+        time_zone: UTC
+  flyway:
+    locations: classpath:db/migration/h2
+    baseline-on-migrate: true
+  datasource:
+    url: jdbc:h2:mem:${application.name}db
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+    jpa:
+      hibernate:
+        ddl-auto: none
+      show-sql: true
+      properties:
+        hibernate:
+          format_sql: true
+  # Enabling H2 Console
+  h2:
+    console:
+      enabled: true
+  # Profiles
+  profiles:
+    active: local
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus

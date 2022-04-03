@@ -1,0 +1,109 @@
+---
+openapi: "3.0.3"
+info:
+  title: ecommerce-company
+  description: defaultDescription
+  contact:
+    email: https://github.com/idosinchuk
+  version: "0.1"
+servers:
+  - url: http://localhost:8080
+paths:
+  /price/find:
+    summary: Price API
+    description: This API is related to finds price resource
+    get:
+      summary: Find price
+      description: Find the price filtered by product, brand and date
+      operationId: findPrice
+      tags:
+        - price
+      parameters:
+        - name: date
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+          example: 2020-06-16-00.00.00
+        - name: productId
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+          example: "35455"
+        - name: brandId
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+          example: "1"
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PricePresentation'
+        '500':
+          description: Internal Server Error
+        '400':
+          description: Bad Request
+        default:
+          description: Auto generated using Swagger Inspector
+      servers:
+        - url: http://localhost:8080
+    servers:
+      - url: http://localhost:8080
+components:
+  schemas:
+    PricePresentation:
+      type: object
+      properties:
+        brandId:
+          description: Foreign key of the group string.
+          type: integer
+          format: int64
+          example: BRAND1
+        endDate:
+          description: End date range in which the indicated rate price applies.
+          type: string
+          example: 2020-12-31-23.59.59
+        startDate:
+          description: Start date range in which the indicated rate price applies.
+          type: string
+          example: 2020-06-14-00.00.00
+        priceList:
+          description: Identifier of the applicable price list.
+          type: integer
+          format: int32
+          example: 1
+        productId:
+          description: Product code identifier.
+          type: integer
+          format: int64
+          example: 35455
+        priority:
+          description: Pricing Disambiguator. If two rates coincide in a range of dates, the one with the highest priority (highest numerical value) is applied.
+          type: integer
+          format: int32
+          example: 1
+        price:
+          description: Final sale price.
+          type: number
+          example: 35.40
+        currency:
+          description: ISO of the currency.
+          type: string
+          example: EUR
+      required:
+        - brandId
+        - endDate
+        - startDate
+        - productId
+        - price
