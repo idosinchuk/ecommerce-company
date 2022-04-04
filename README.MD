@@ -98,43 +98,43 @@ This will, by default, generate html reports in the build/reports/jacoco/ folder
 
 # Accessing the in-memory database directly
 If you want to query or edit the in-memory H2 database directly, you can use the embedded H2 console located
-at http://localhost:8080/h2-console. The correct settings (which should be the default) are:
+at `http://localhost:8080/h2-console`. The correct settings (which should be the default) are:
 
 - Driver class: `org.h2.Driver`
 - JDBC URL: `jdbc:h2:mem:ecommerce-companydb`
 - User name: `sa`
-- Password: empty
+- Password: ` `
 
 # Monitoring with Actuator
-Access with http://localhost:8080/actuator
+Access with `http://localhost:8080/actuator`
 
 # Monitoring with Prometheus
-Access with http://localhost:8080/actuator/prometheus
+Access with `http://localhost:8080/actuator/prometheus`
 
 # Prometheus Dashboard
-Access with http://localhost:9090/targets
+Access with `http://localhost:9090/targets`
 
 # Grafana Dashboard
-Access with http://localhost:3000
+Access with `http://localhost:3000`
 
 The login credentials by default are:
 - Username: `admin`
 - Password: `admin`
 
 # Code quality with SonarQube
-Once SonarQube is running, execute ./gradlew sonarqube.
+1. Run SonarQube with: `./gradlew sonarqube`
 
-Modify the Sonar credentials in `build.gradle`
+2. Access and login into `http://localhost:9000`
 
-`property "sonar.login", "admin"`
-
-`property "sonar.password", "admin"`
-
-Access with http://localhost:9000
-
-The login credentials by default are:
+3. The login credentials by default are:
 - Username: `admin`
 - Password: `admin`
+
+4. Change the default password.
+
+5. Modify the Sonar credentials in `build.gradle` by the new password.
+
+`property "sonar.password", "admin"`
 
 # Technology stack
 The `eccomerce-company` technology stack consists of:
