@@ -64,8 +64,9 @@ tasks.withType(JavaCompile) {
 sonarqube {
     properties {
         property 'sonar.host.url', 'http://localhost:9000'
-        //property "sonar.login", ""
-        //property "sonar.password", ""
+        // Modify the login credentials before run Sonar
+        property "sonar.login", "admin"
+        property "sonar.password", "admin"
         //property "sonar.exclusions", "**/Application.java, **/dto/**"
         property "sonar.projectKey", "ecommerce-company"
         property 'sonar.projectName', 'Eccomerce Company'

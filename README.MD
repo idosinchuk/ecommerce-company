@@ -124,9 +124,17 @@ The login credentials by default are:
 # Code quality with SonarQube
 Once SonarQube is running, execute ./gradlew sonarqube.
 
-The project has been analyzed with SonarLint following the strictest rules and best programming practices.
+Modify the Sonar credentials in `build.gradle`
+
+`property "sonar.login", "admin"`
+
+`property "sonar.password", "admin"`
 
 Access with http://localhost:9000
+
+The login credentials by default are:
+- Username: `admin`
+- Password: `admin`
 
 # Technology stack
 The `eccomerce-company` technology stack consists of:

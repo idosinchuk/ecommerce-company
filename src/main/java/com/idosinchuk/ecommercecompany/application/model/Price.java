@@ -13,10 +13,11 @@ import com.idosinchuk.ecommercecompany.domain.exception.DateRequestWrongFormatEx
 import com.idosinchuk.ecommercecompany.infraestructure.entity.PriceEntity;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@Data
+@Getter
 @Builder
 public class Price {
 
