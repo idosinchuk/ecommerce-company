@@ -35,28 +35,9 @@ services:
     volumes:
       - postgresql:/var/lib/postgresql
       - postgresql_data:/var/lib/postgresql/data
-  spring-boot:
-    container_name: ecommerce-company
-    build: .
-    ports:
-      - "8080:8080"
-  prometheus:
-    image: prom/prometheus
-    container_name: prometheus
-    volumes:
-      - ./docker/monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-    ports:
-      - "9090:9090"
-  grafana:
-    image: grafana/grafana
-    container_name: grafana
-    ports:
-      - "3000:3000"
-
 networks:
   sonarnet:
     driver: bridge
-
 volumes:
   sonarqube_conf:
   sonarqube_data:

@@ -122,9 +122,7 @@ The login credentials by default are:
 - Password: `admin`
 
 # Code quality with SonarQube
-
-Run: `gradle clean build jacocoTestReport`
-Run: `sonar-scanner`
+Once SonarQube is running, execute ./gradlew sonarqube.
 
 The project has been analyzed with SonarLint following the strictest rules and best programming practices.
 
@@ -145,7 +143,7 @@ The `eccomerce-company` technology stack consists of:
 - [JUnit 5.8.2](https://martinfowler.com/bliki/DomainDrivenDesign.html) as a unit testing framework.
 - [Jacoco](https://www.jacoco.org/jacoco/trunk/doc/) as code coverage metric provider.
 - [DDD](https://martinfowler.com/bliki/DomainDrivenDesign.html) as an approach to software development.
-- [Hexagonal Arquitecture](https://alistair.cockburn.us/hexagonal-architecture/) As a software architecture pattern.
+- [Hexagonal Arquitecture](https://alistair.cockburn.us/hexagonal-architecture/) as a software architecture pattern.
 - [Spring Boot Actuator](https://prometheus.io/docs/introduction/overview/) as a monitoring and managing tool.
 - [Prometheus](https://prometheus.io/docs/introduction/overview/) as a system monitoring and alerting toolkit.
 - [Grafana](https://grafana.com/docs/) as an analytics and interactive visualization tool.

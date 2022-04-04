@@ -74,7 +74,7 @@ sonarqube {
         property "sonar.sourceEncoding", "UTF-8"
         property "sonar.junit.reportsPath", "$buildDir/reports/tests"
         property "sonar.coverage.jacoco.xmlReportPaths", "$buildDir/jacoco/xml/jacoco.xml"
-
+        property "sonar.jacoco.reportPath", "$buildDir/jacoco/jacoco.exec"
     }
 }
 
@@ -99,8 +99,8 @@ tasks['sonarqube'].dependsOn jacocoTestReport
 
 openApiGenerate {
     generatorName = "java"
-    inputSpec = "$rootDir/specs/openapi.yml"
-    outputDir = "$buildDir/generated/sources/openapi"
+    inputSpec = "$rootDir/specs/openapi.yml".toString()
+    outputDir = "$buildDir/generated/sources/openapi".toString()
     configOptions = [
             dateLibrary       : "java8",
             interfaceOnly     : "true",
@@ -110,4 +110,10 @@ openApiGenerate {
 
 compileJava.dependsOn tasks.openApiGenerate
 
-sourceSets { main { java { srcDir "$buildDir/generated/openapi/src/main/java" } } }
+sourceSets {
+    main {
+        java {
+            srcDir "$buildDir/java-client/src/main/java"
+        }
+    }
+}
