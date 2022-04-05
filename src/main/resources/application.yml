@@ -3,14 +3,17 @@ application:
   name=: ecommerce-company
 
 spring:
+  # Caffeine Cache Config
   cache:
     cache-names: prices
     caffeine:
       spec: maximumSize=500,initialCapacity=1000
   jpa:
     hibernate:
+      # Disable ORM table creation because of Flyway use
       ddl-auto: none
       jdbc:
+        # Use UTC zone
         time_zone: UTC
   flyway:
     locations: classpath:db/migration/h2
@@ -34,6 +37,7 @@ spring:
   # Profiles
   profiles:
     active: local
+# Actuator endpoints that let monitor and interact with the application.
 management:
   endpoints:
     web:

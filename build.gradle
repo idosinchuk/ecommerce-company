@@ -114,7 +114,7 @@ compileJava.dependsOn tasks.openApiGenerate
 sourceSets {
     main {
         java {
-            srcDir "$buildDir/java-client/src/main/java"
+            srcDir "$buildDir/generated/sources/openapi/src/main/java"
         }
     }
 }
