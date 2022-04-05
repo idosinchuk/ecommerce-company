@@ -13,9 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class PriceRepositoryImpl implements PriceRepository {
-
-  public static final String DATE_TIME_FORMAT = "yyyy-MM-dd-HH.mm.ss";
-
+  
   private final PriceJpaRepository priceJpaRepository;
 
   @Override
